@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracker — HDNB Bootcamp</title>
+  <link rel="stylesheet" href="/DA_HDNB/styles/main.css">
+  <link rel="stylesheet" href="/DA_HDNB/styles/tracker.css">
+</head>
+<body>
+<script src="/DA_HDNB/assets/nav.js"></script>
+<script src="/DA_HDNB/assets/data.js"></script>
+
+<div class="page-header">
+  <div style="max-width:920px;margin:0 auto;padding:0 1.5rem;">
+    <div class="eyebrow">Progress Tracker</div>
+    <h1>My Bootcamp Progress</h1>
+    <p>Synced with Google Sheets — access your progress from any device.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Sync status bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 16px;margin-top:1.5rem;margin-bottom:.5rem;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-hint);">Google Sheets Sync</span>
+      <span id="sync-status" style="font-size:12px;font-weight:500;color:#856404;">⟳ Loading...</span>
+    </div>
+    <a href="https://docs.google.com/spreadsheets/d/1kNvQb02wxtlqN79KItppgbIF8SowmmfZ0Wn5p8bQB-8/edit"
+       target="_blank"
+       style="font-size:11px;font-weight:600;color:var(--mid-teal);text-decoration:none;border:1px solid var(--mid-teal);border-radius:4px;padding:3px 10px;">
+      📊 Open Sheet
+    </a>
+  </div>
+
+  <div class="section-head"><h2>Overall progress</h2></div>
+
+  <div class="card" style="margin-bottom:1rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+      <span style="font-size:13px;font-weight:600;">Overall completion</span>
+      <span id="sum-pct" style="font-size:13px;font-weight:700;color:var(--dark-teal);">0%</span>
+    </div>
+    <div style="width:100%;height:8px;background:#e8e6e0;border-radius:99px;overflow:hidden;">
+      <div id="overall-bar" style="height:100%;width:0%;background:var(--mid-teal);border-radius:99px;transition:width .4s ease;"></div>
+    </div>
+  </div>
+
+  <div class="summary-bar">
+    <div class="summary-card"><div class="summary-number" style="color:#155724;" id="sum-done">0</div><div class="summary-label">Done</div></div>
+    <div class="summary-card"><div class="summary-number" style="color:#0c5460;" id="sum-progress">0</div><div class="summary-label">In Progress</div></div>
+    <div class="summary-card"><div class="summary-number" style="color:#856404;" id="sum-pending">57</div><div class="summary-label">Pending</div></div>
+    <div class="summary-card"><div class="summary-number">57</div><div class="summary-label">Total tasks</div></div>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:1rem;font-size:12px;align-items:center;">
+    <span style="color:var(--text-hint);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:10px;">Status:</span>
+    <span class="status status-done">Done</span>
+    <span class="status status-progress">In Progress</span>
+    <span class="status status-pending">Pending</span>
+    <span style="margin-left:auto;">
+      <button onclick="resetTracker()" style="font-size:11px;padding:4px 12px;border:1px solid #ddd;border-radius:6px;background:#fff;color:#999;cursor:pointer;">Reset all</button>
+    </span>
+  </div>
+
+  <div class="section-head"><h2>Class tracker</h2></div>
+
+  <div style="display:grid;grid-template-columns:52px 70px 1fr 130px 130px 130px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-hint);padding:6px 0;border-bottom:1px solid var(--border);margin-bottom:4px;">
+    <div style="text-align:center;">#</div>
+    <div style="text-align:center;">Class</div>
+    <div style="padding-left:14px;">Topic</div>
+    <div style="text-align:center;border-left:1px solid #f0efea;">Attendance</div>
+    <div style="text-align:center;border-left:1px solid #f0efea;">Assignment</div>
+    <div style="text-align:center;border-left:1px solid #f0efea;">Quiz / Test</div>
+  </div>
+
+  <div id="tracker-root"></div>
+
+  <div class="info-box blue" style="margin-top:1.5rem;">
+    Data is saved to Google Sheets in real time. If you're offline, changes save locally and will sync next time you're online.
+  </div>
+
+  <div class="site-footer">
+    HDNB Data Analytics Bootcamp · June–September 2026 ·
+    This site is a personal study companion — not an official HDNB product.
+  </div>
+</div>
+
+<script src="/DA_HDNB/assets/tracker.js"></script>
+</body>
+</html>

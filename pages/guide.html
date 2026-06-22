@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Guide — HDNB Bootcamp</title>
+  <link rel="stylesheet" href="/DA_HDNB/styles/main.css">
+  <style>
+    .module-block { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); margin-bottom:12px; overflow:hidden; }
+    .module-header { display:flex; align-items:stretch; }
+    .module-num { width:56px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; letter-spacing:.06em; color:#fff; flex-shrink:0; }
+    .module-title-area { flex:1; padding:12px 14px; border-left:1px solid var(--border); }
+    .module-title { font-size:14px; font-weight:600; margin-bottom:2px; }
+    .module-meta-line { font-size:11px; color:var(--text-hint); margin-bottom:8px; }
+    .topics { display:flex; flex-wrap:wrap; gap:6px; }
+    .topic { font-size:11px; background:#f2f1ec; border-radius:4px; padding:3px 8px; color:#555; }
+    .verdict { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; margin-bottom:1.5rem; }
+    .verdict-head { background:var(--dark-navy); padding:10px 16px; font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:#7c8db5; }
+    .verdict-body { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; padding:16px; }
+    .verdict-label { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-hint); margin-bottom:4px; }
+    .verdict-val { font-size:13px; color:#333; line-height:1.5; }
+    .ok   { color:var(--green-ok); font-weight:500; }
+    .warn { color:var(--warn-text); font-weight:500; }
+    .tip-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:14px 16px; }
+    .tip-label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:6px; }
+    .tip-text  { font-size:12px; color:#555; line-height:1.55; }
+  </style>
+</head>
+<body>
+<script src="/DA_HDNB/assets/nav.js"></script>
+
+<div class="page-header">
+  <div style="max-width:920px;margin:0 auto;padding:0 1.5rem;">
+    <div class="eyebrow">Course Guide</div>
+    <h1>Schedule, Modules & Prep Tips</h1>
+    <p>Full 7-module breakdown across 19 classes, plus what to do before each module starts.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="section-head"><h2>Assessment — Is This Course Worth It?</h2></div>
+  <div class="verdict">
+    <div class="verdict-head">Verdict at a glance</div>
+    <div class="verdict-body">
+      <div><div class="verdict-label">Structure</div><div class="verdict-val ok">Well-organised. 7 modules, 19 classes is solid pacing — not too rushed.</div></div>
+      <div><div class="verdict-label">Instructors</div><div class="verdict-val ok">5 practitioners with LinkedIn profiles — stronger than most local bootcamps.</div></div>
+      <div><div class="verdict-label">Delivery</div><div class="verdict-val ok">Live Google Meet + recordings + Discord TA + 15-min FAQ per class.</div></div>
+      <div><div class="verdict-label">Commitment</div><div class="verdict-val warn">5–8 hrs/week over 3 months. Manageable alongside a full-time job.</div></div>
+      <div><div class="verdict-label">Job Placement</div><div class="verdict-val warn">CV forwarding to partners — not a guarantee. Attendance + assessments required.</div></div>
+      <div><div class="verdict-label">For HR → Analytics</div><div class="verdict-val ok">Strong fit. Covers exactly the tools HR data analysts use.</div></div>
+    </div>
+  </div>
+
+  <div class="info-box amber">
+    <strong>Note:</strong> HDNB stores all module details as images on their site. The schedule below is reconstructed from the page structure. Verify with HDNB directly before the course starts.
+  </div>
+
+  <div class="section-head"><h2>Full Schedule — 19 Classes across 7 Modules</h2></div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#1a5276;">M1</div>
+      <div class="module-title-area">
+        <div class="module-title">Data Analytics Foundations</div>
+        <div class="module-meta-line">Classes 1–2 · Week 1</div>
+        <div class="topics">
+          <span class="topic">What is data analytics</span>
+          <span class="topic">Types: descriptive / diagnostic / predictive / prescriptive</span>
+          <span class="topic">Data analyst vs data scientist</span>
+          <span class="topic">Career roadmap in Bangladesh</span>
+          <span class="topic">Tools overview</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#117a65;">M2</div>
+      <div class="module-title-area">
+        <div class="module-title">Excel for Data Analytics</div>
+        <div class="module-meta-line">Classes 3–5 · Weeks 2–3</div>
+        <div class="topics">
+          <span class="topic">Data formatting & cleaning</span>
+          <span class="topic">VLOOKUP, XLOOKUP, IF, COUNTIFS, SUMIFS</span>
+          <span class="topic">Pivot tables & pivot charts</span>
+          <span class="topic">Power Query basics</span>
+          <span class="topic">Data validation & conditional formatting</span>
+          <span class="topic">Excel dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#784212;">M3</div>
+      <div class="module-title-area">
+        <div class="module-title">SQL for Data Querying</div>
+        <div class="module-meta-line">Classes 6–8 · Weeks 4–5</div>
+        <div class="topics">
+          <span class="topic">SELECT, FROM, WHERE, GROUP BY, ORDER BY</span>
+          <span class="topic">JOINs (inner, left, right)</span>
+          <span class="topic">Aggregate functions</span>
+          <span class="topic">Subqueries & CTEs</span>
+          <span class="topic">Data cleaning in SQL</span>
+          <span class="topic">SQL project: HR/sales dataset</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#4a235a;">M4</div>
+      <div class="module-title-area">
+        <div class="module-title">Statistics for Data Analytics</div>
+        <div class="module-meta-line">Classes 9–10 · Week 6</div>
+        <div class="topics">
+          <span class="topic">Descriptive stats: mean, median, mode, std dev</span>
+          <span class="topic">Distributions & probability basics</span>
+          <span class="topic">Correlation vs causation</span>
+          <span class="topic">Hypothesis testing (t-test, p-value)</span>
+          <span class="topic">Applied stats in Excel / Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#c0392b;">M5</div>
+      <div class="module-title-area">
+        <div class="module-title">Power BI — Dashboards & Reporting</div>
+        <div class="module-meta-line">Classes 11–13 · Weeks 7–8</div>
+        <div class="topics">
+          <span class="topic">Power BI interface & data import</span>
+          <span class="topic">Data modelling & relationships</span>
+          <span class="topic">DAX basics (CALCULATE, SUMX, FILTER)</span>
+          <span class="topic">Building interactive dashboards</span>
+          <span class="topic">Publishing & sharing reports</span>
+          <span class="topic">Power BI project</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#154360;">M6</div>
+      <div class="module-title-area">
+        <div class="module-title">Python for Data Analytics</div>
+        <div class="module-meta-line">Classes 14–16 · Weeks 9–10</div>
+        <div class="topics">
+          <span class="topic">Python basics (variables, loops, functions)</span>
+          <span class="topic">Pandas: DataFrames, filtering, groupby</span>
+          <span class="topic">NumPy essentials</span>
+          <span class="topic">Matplotlib & Seaborn for visualisation</span>
+          <span class="topic">Exploratory data analysis (EDA)</span>
+          <span class="topic">Python project on real dataset</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module-block">
+    <div class="module-header">
+      <div class="module-num" style="background:#2c7a7b;">M7</div>
+      <div class="module-title-area">
+        <div class="module-title">Capstone Project + Career Prep</div>
+        <div class="module-meta-line">Classes 17–19 · Weeks 11–12</div>
+        <div class="topics">
+          <span class="topic">End-to-end analytics project</span>
+          <span class="topic">Data storytelling & presenting insights</span>
+          <span class="topic">Portfolio building (GitHub)</span>
+          <span class="topic">CV & LinkedIn optimisation</span>
+          <span class="topic">Mock interview prep</span>
+          <span class="topic">Final assessment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head"><h2>How to Prepare — Before Each Module</h2></div>
+  <div class="card-grid">
+    <div class="tip-card"><div class="tip-label" style="color:#117a65;">Before M2 — Excel</div><div class="tip-text">Install Excel or Google Sheets. Practice SUM, IF, VLOOKUP. Your HR work already gives you a head start here.</div></div>
+    <div class="tip-card"><div class="tip-label" style="color:#784212;">Before M3 — SQL</div><div class="tip-text">Install MySQL or PostgreSQL (free). Watch the first 3–4 videos of Data with Baraa's SQL course — just SELECT is enough.</div></div>
+    <div class="tip-card"><div class="tip-label" style="color:#4a235a;">Before M4 — Stats</div><div class="tip-text">Watch 5–6 StatQuest videos on descriptive stats. Your HR metrics background means correlation and averages will click fast.</div></div>
+    <div class="tip-card"><div class="tip-label" style="color:#c0392b;">Before M5 — Power BI</div><div class="tip-text">Download Power BI Desktop (free). Connect to an Excel file and build one chart before class. It moves quickly.</div></div>
+    <div class="tip-card"><div class="tip-label" style="color:#154360;">Before M6 — Python</div><div class="tip-text">Install Python via Anaconda. Open Jupyter Notebook. Run print('hello') — that's all you need before class.</div></div>
+    <div class="tip-card"><div class="tip-label" style="color:#2c7a7b;">For M7 — Capstone</div><div class="tip-text">Plan to use an HR dataset — attrition, headcount, performance. PMUK-type data will make your portfolio stand out.</div></div>
+  </div>
+
+  <div class="site-footer">
+    HDNB Data Analytics Bootcamp · hdnb.net · June–September 2026 ·
+    This site is a personal study companion — not an official HDNB product.
+  </div>
+</div>
+</body>
+</html>

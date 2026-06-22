@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Prep Resources — HDNB Bootcamp</title>
+  <link rel="stylesheet" href="/DA_HDNB/styles/main.css">
+  <style>
+    .filter-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:1.5rem; }
+    .filter-btn { font-size:12px; padding:5px 14px; border-radius:999px; border:1px solid var(--border); background:#fff; color:var(--text-muted); cursor:pointer; transition:all .15s; }
+    .filter-btn:hover { border-color:var(--mid-teal); color:var(--mid-teal); }
+    .filter-btn.active { background:var(--dark-teal); color:#fff; border-color:var(--dark-teal); }
+    .resource-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+    .resource-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:14px 16px; display:flex; flex-direction:column; gap:8px; transition:box-shadow .15s; }
+    .resource-card:hover { box-shadow:0 2px 14px rgba(0,0,0,.08); }
+    .resource-card-top { display:flex; align-items:flex-start; gap:10px; }
+    .resource-card-title { font-size:13px; font-weight:600; color:var(--text-primary); line-height:1.4; }
+    .resource-card-title a { color:inherit; }
+    .resource-card-title a:hover { color:#1a56db; text-decoration:underline; }
+    .resource-card-channel { font-size:11px; color:var(--text-hint); }
+    .resource-card-covers { font-size:12px; color:var(--text-muted); background:var(--bg-alt); border-radius:var(--radius-sm); padding:8px 10px; line-height:1.5; }
+    .resource-card-covers::before { content:'Covers: '; font-weight:600; color:var(--text-hint); }
+    .yt-btn { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; padding:6px 14px; background:#ff0000; color:#fff; border-radius:var(--radius-sm); text-decoration:none; width:fit-content; transition:opacity .15s; }
+    .yt-btn:hover { opacity:.88; text-decoration:none; }
+  </style>
+</head>
+<body>
+<script src="/DA_HDNB/assets/nav.js"></script>
+<script src="/DA_HDNB/assets/data.js"></script>
+
+<div class="page-header">
+  <div style="max-width:920px;margin:0 auto;padding:0 1.5rem;">
+    <div class="eyebrow">YouTube Prep Resources</div>
+    <h1>Watch Before Each Module</h1>
+    <p>12 curated free courses mapped to each module. Even 1–2 hours of prep before class makes a real difference.</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="section-head"><h2>Filter by module</h2></div>
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterResources('all', this)">All resources</button>
+    <button class="filter-btn" onclick="filterResources('M1', this)"><span class="badge badge-m1">M1</span> &nbsp;Foundations</button>
+    <button class="filter-btn" onclick="filterResources('M2', this)"><span class="badge badge-m2">M2</span> &nbsp;Excel</button>
+    <button class="filter-btn" onclick="filterResources('M3', this)"><span class="badge badge-m3">M3</span> &nbsp;SQL</button>
+    <button class="filter-btn" onclick="filterResources('M4', this)"><span class="badge badge-m4">M4</span> &nbsp;Statistics</button>
+    <button class="filter-btn" onclick="filterResources('M5', this)"><span class="badge badge-m5">M5</span> &nbsp;Power BI</button>
+    <button class="filter-btn" onclick="filterResources('M6', this)"><span class="badge badge-m6">M6</span> &nbsp;Python</button>
+    <button class="filter-btn" onclick="filterResources('M7', this)"><span class="badge badge-m7">M7</span> &nbsp;Capstone</button>
+  </div>
+
+  <div class="resource-grid" id="resource-grid"></div>
+
+  <div class="section-head" style="margin-top:2rem;"><h2>How to use these resources</h2></div>
+  <div class="card-grid">
+    <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:6px;">Don't try to finish them</div><div style="font-size:12px;color:#666;line-height:1.55;">Watch 1–2 hours before the relevant module starts — just enough to recognise concepts when they come up in class.</div></div>
+    <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:6px;">Code along</div><div style="font-size:12px;color:#666;line-height:1.55;">For SQL and Python especially, pause and type every command yourself. Watching passively is not the same as doing.</div></div>
+    <div class="card"><div style="font-weight:600;font-size:13px;margin-bottom:6px;">Use them for revision too</div><div style="font-size:12px;color:#666;line-height:1.55;">After each class, rewatch the relevant section at 1.5× speed. The second pass always lands better.</div></div>
+  </div>
+
+  <div class="site-footer">
+    HDNB Data Analytics Bootcamp · June–September 2026 ·
+    This site is a personal study companion — not an official HDNB product.
+  </div>
+</div>
+
+<script>
+function buildCards(filter) {
+  const grid = document.getElementById('resource-grid');
+  grid.innerHTML = '';
+  const items = filter === 'all' ? BOOTCAMP_DATA.resources : BOOTCAMP_DATA.resources.filter(r => r.module === filter);
+  items.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'resource-card';
+    card.innerHTML = `
+      <div class="resource-card-top">
+        <span class="badge ${r.badge}" style="flex-shrink:0;margin-top:2px;">${r.module}</span>
+        <div>
+          <div class="resource-card-title"><a href="${r.url}" target="_blank" rel="noopener">${r.title}</a></div>
+          <div class="resource-card-channel">${r.channel}</div>
+        </div>
+      </div>
+      <div class="resource-card-covers">${r.covers}</div>
+      <a class="yt-btn" href="${r.url}" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        Watch on YouTube
+      </a>`;
+    grid.appendChild(card);
+  });
+}
+
+function filterResources(mod, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  buildCards(mod);
+}
+
+document.addEventListener('DOMContentLoaded', () => buildCards('all'));
+</script>
+</body>
+</html>

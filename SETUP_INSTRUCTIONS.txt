@@ -1,0 +1,124 @@
+HDNB BOOTCAMP TRACKER — GOOGLE SHEETS SETUP INSTRUCTIONS
+=========================================================
+
+Follow these steps ONCE to connect your website to Google Sheets.
+After this, your tracker will sync across all devices automatically.
+
+─────────────────────────────────────────────────────────────
+STEP 1 — Open your Google Sheet
+─────────────────────────────────────────────────────────────
+Go to:
+https://docs.google.com/spreadsheets/d/1kNvQb02wxtlqN79KItppgbIF8SowmmfZ0Wn5p8bQB-8/edit
+
+Make sure Row 1 has these exact headers:
+  A1: key
+  B1: module
+  C1: class
+  D1: attendance
+  E1: assignment
+  F1: quiz
+  G1: note
+
+
+─────────────────────────────────────────────────────────────
+STEP 2 — Open Apps Script
+─────────────────────────────────────────────────────────────
+Inside your Google Sheet:
+  Click  Extensions  →  Apps Script
+
+This opens the script editor in a new tab.
+Delete any code already in the editor (select all, delete).
+
+
+─────────────────────────────────────────────────────────────
+STEP 3 — Paste the script
+─────────────────────────────────────────────────────────────
+Open the file:  assets/appsscript.gs  (from this zip)
+
+Copy the ENTIRE contents of that file.
+Paste it into the Apps Script editor.
+Click the Save button (floppy disk icon) or press Ctrl+S.
+
+
+─────────────────────────────────────────────────────────────
+STEP 4 — Deploy as Web App
+─────────────────────────────────────────────────────────────
+In the Apps Script editor:
+  Click  Deploy  (top right)  →  New deployment
+
+In the dialog that opens:
+  - Click the gear icon next to "Type" → select  Web app
+  - Description:  HDNB Tracker
+  - Execute as:   Me
+  - Who has access:  Anyone
+
+Click  Deploy.
+
+Google will ask you to authorise — click through:
+  Review permissions → Choose your Google account → Allow
+
+After authorising, you will see:
+  "Web app URL:  https://script.google.com/macros/s/XXXXX.../exec"
+
+COPY THAT URL — you need it in Step 5.
+
+
+─────────────────────────────────────────────────────────────
+STEP 5 — Paste the URL into tracker.js
+─────────────────────────────────────────────────────────────
+Open the file:  assets/tracker.js
+
+Find this line near the top (line 7):
+  const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+Replace  PASTE_YOUR_APPS_SCRIPT_URL_HERE  with the URL you copied.
+
+Example result:
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx.../exec";
+
+Save the file.
+
+
+─────────────────────────────────────────────────────────────
+STEP 6 — Upload updated files to GitHub
+─────────────────────────────────────────────────────────────
+Only ONE file changed: assets/tracker.js
+
+In your GitHub repo:
+  Click on  assets/tracker.js
+  Click the pencil icon (Edit)
+  Select all, delete, paste your updated tracker.js content
+  Click  Commit changes
+
+Wait 1–2 minutes for GitHub Pages to rebuild.
+
+
+─────────────────────────────────────────────────────────────
+STEP 7 — Test it
+─────────────────────────────────────────────────────────────
+Open your site:  https://fardeen-777.github.io/DA_HDNB/pages/tracker.html
+
+You should see:  "✓ Synced with Google Sheets"  in the status bar.
+
+Change a dropdown → open your Google Sheet → you should see the row appear.
+Open the tracker on your phone → same data should load.
+
+
+─────────────────────────────────────────────────────────────
+TROUBLESHOOTING
+─────────────────────────────────────────────────────────────
+
+"⚠ Offline — using local cache"
+→ The SCRIPT_URL is wrong or not yet pasted. Check Step 5.
+
+"⚠ Save failed"
+→ Re-deploy the Apps Script (Deploy → Manage deployments → Edit → New version → Deploy).
+→ Make sure "Who has access" is set to "Anyone" (not "Anyone with Google account").
+
+Data not appearing in Sheet
+→ Check that your Sheet headers in Row 1 are exactly:
+   key | module | class | attendance | assignment | quiz | note
+
+=========================================================
+Done! Your tracker now saves to Google Sheets from any device.
+=========================================================
